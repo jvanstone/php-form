@@ -1,0 +1,299 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1.25;
+  font-weight: normal;
+  font-family: arial, helvetica;
+  background-color: #8475AC;
+}
+
+#container {
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 0px 0 0 0;
+  border: 0px solid #cfc;
+  background-color: #ccc;
+}
+
+#inner-container {
+  margin: 0 auto;
+  padding: 0;
+  border: 0px solid #4c4;
+  border-radius: 0px 0 0 0;
+  background-color: #8475AC;
+}
+
+#header {
+  margin-left: 2em;
+  padding: 0 1em;
+  height: 5em;
+  border: 0px solid #ccc;
+  border-radius: 10px 0 0 0;
+  background-color: #8475AC;
+  background-image: url("../simages/pink.gif");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-size: auto;
+}
+
+#header img {
+  margin: 0 10px;
+  border-radius: 10px 0 0 0;
+  width: 100%;
+  height: auto;
+}
+
+#assessmentform {
+  margin: 1em auto;
+  padding: 2em;
+  font-weight: normal;
+  background-color: #fff;
+  width: 100%;
+}
+
+#assessmentform fieldset {
+  margin: 5px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  color: #222;
+}
+
+#assessmentform legend {
+  margin: 0 5px;
+  padding: 10px;
+  width: auto;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#assessmentform .label {
+  margin: 10px;
+  padding: 6px;
+  width: auto;
+  text-align: left;
+  font-weight: normal;
+  text-transform: capitalize;
+}
+
+#assessmentform .required {
+  margin: 5px;
+  padding: 6px;
+  -webkit-box-flex: 100%;
+      -ms-flex: 100%;
+          flex: 100%;
+  max-width: 10em;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+#assessmentform .radioLabel {
+  margin: 5px;
+  padding: 6px;
+  text-align: left;
+  font-weight: normal;
+  text-transform: normal;
+}
+
+#assessmentform input[type=text], input[type=email], input[type=tel], input[type=file], input[type=date], .results {
+  margin: 5px 20px;
+  position: relative;
+  width: 20em;
+}
+
+#assessmentform .results {
+  margin: 50px 20px;
+  padding: 10px;
+  position: relative;
+  width: 20em;
+}
+
+#assessmentform select {
+  margin: 0px 20px;
+  padding: 0 10px;
+}
+
+#assessmentform .dateBox {
+  margin: 5px 20px;
+  padding: 0px;
+  display: block;
+  width: 20em;
+}
+
+#assessmentform .dateBoxData {
+  margin: 0px 10px;
+  padding: 0px 0 0 0;
+}
+
+.button {
+  margin: 0;
+  height: 3em;
+  width: 40%;
+  text-align: center;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+
+.button:hover {
+  background-color: #8475AC;
+  color: white;
+}
+
+.button:click {
+  background-color: #cfBAdf;
+  color: white;
+}
+
+/* The Radio Button container */
+.radio_container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin: 5px 0 12px 0;
+  cursor: pointer;
+  font-size: 12px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio_container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 12px;
+  width: 12px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.radio_container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio_container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio_container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio_container .checkmark:after {
+  top: 9px;
+  left: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.Newsletter {
+  margin: 2px 0;
+  padding: 2px 5px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  clear: both;
+  overflow: hidden;
+  width: 24em;
+  background-color: #cfBAdf;
+  font-size: .75em;
+  text-align: left;
+}
+
+.CheckmarkBox {
+  display: block;
+  margin: 5px 2px;
+  position: relative;
+  float: left;
+  height: 3em;
+  border: 0px solid #888;
+  text-align: left;
+}
+
+.CheckmarkText {
+  margin: 0px 0;
+  padding: 5px;
+  float: left;
+  display: block;
+  width: 75%;
+  height: 3em;
+}
+
+blockquote {
+  font-family: Georgia, serif;
+  position: relative;
+  margin: 2em .05em;
+  padding: 0.5em 2em 0.5em 3em;
+  border: 0px solid #000;
+}
+
+/* Thanks: http://callmenick.com/post/styling-blockquotes-with-css-pseudo-classes */
+blockquote:before {
+  font-family: Georgia, serif;
+  position: absolute;
+  font-size: 6em;
+  line-height: 1;
+  top: 0;
+  left: 0;
+  content: "\201C";
+}
+
+blockquote:after {
+  font-family: Georgia, serif;
+  position: absolute;
+  /* display: block; don't use this, it raised the quote too high from the bottom - defeated line-height? */
+  float: right;
+  font-size: 6em;
+  line-height: 1;
+  right: 0;
+  bottom: -0.5em;
+  content: "\201D";
+}
+
+blockquote footer {
+  padding: 0 2em 0 0;
+  text-align: right;
+}
+
+blockquote cite:before {
+  content: "\2013";
+}
+
+.buttonContainer {
+  margin: 0;
+  padding: 0;
+  width: 20em;
+}
+/*# sourceMappingURL=style.css.map */
