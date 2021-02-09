@@ -6,7 +6,7 @@
     <meta name="keywords" content="">
     <meta charset="UTF-8">
     <meta name="Author" content="Jason Vanstone">
-    <meta name="Copyright" content=="">
+    <meta name="Copyright" content="">
  
   
     <!-- Required meta tags -->
@@ -16,7 +16,6 @@
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   
-   <!--  <link rel="stylesheet" type="text/css" href="./css/style.css" /> -->
   </head> 
 
 <body>
@@ -28,15 +27,15 @@
     <!-- Header -->
       <div id="header"><a href="index.php"></a></div>
 
-
+    <div class="container-sm">
       <!-- Main Form -->
-      <form id="assessmentform" onsubmit="return submitUserForm();" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
+      <form id="assessmentform" data-toggle="validator" role="form" data-disable="false" action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post" enctype="multipart/form-data">
 
       <?php include('assessmentForm.php'); ?>
 
 
       </form> <!-- End of the Main Assesment Form -->
-
+    </div> <!-- End Container -->
 
     </div> <!-- Inner Container -->
   </div>  <!-- Main Container -->
