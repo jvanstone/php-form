@@ -15,26 +15,33 @@ $months = array(
 );
 ?>
 
+<div class="container">
 
     <!-- General Information  -->
  <fieldset>
-   <legend>General Information</legend>
+  <legend>General Information</legend>
 
- <label class="item required" id="label_First_Name" for="First_Name">First Name*</label>
+<div class="form-floating mb-3">
   <input type="text" data-toggle="tooltip" title="requird field" id="First_Name" name="First_Name" required />
-
+  <label class="item required" id="label_First_Name" for="First_Name">First Name*</label>
+</div>
+<div class="mb-3">
   <label class="item required" id="label_Last_Name" for="Last_Name">Last Name*</label>
   <input type="text" data-toggle="tooltip" title="requird field"id="Last_Name" name="Last_Name" required />
-
+  </div>
+<div class="mb-3">
  <label class="item required" id="label_Email" for="Email">Email*</label>
   <input type="Email" id="Email" pattern=".{6,}" maxLength="100" name="Email" required />
-
+  </div>
+<div class="mb-3">
   <label class="item required" id="label_Telephone" for="Telephone">Telephone Number*</label>
   <input type="tel"  id="Telephone" name="Telephone" required />
-
+  </div>
+<div class="mb-3">
   <label class="item required" id="label_Birth_Country" for="Birth_Country">Country of Birth*</label>
   <input type="text" data-toggle="tooltip" title="requird field" id="Birth_Country" name="Birth_Country" />
-
+  </div>
+<div class="mb-3">
   <label class="item required" id="label_Birthdate" for="dateBox">Date of Birth*</label>
  <!--  <input class="date" type="date" data-toggle="tooltip" id="Birthdate" name="Birthdate" required /> -->
 
@@ -665,6 +672,7 @@ test?
  <button type="reset" name="Reset" value="reset" class="button">reset</button>
  </div>
 
+</div> <!-- End Container -->
 
 <!-- 
   <div class="switch">
