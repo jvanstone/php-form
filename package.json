@@ -1,0 +1,30 @@
+{
+  "name": "php-form",
+  "version": "1.0.0",
+  "description": "php form",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass -w sass -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jvanstone/php-form.git"
+  },
+  "author": "Jason Vanstone",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jvanstone/php-form/issues"
+  },
+  "homepage": "https://github.com/jvanstone/php-form#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.14",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-connect-php": "^1.0.3",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-watch-sass": "^1.4.1",
+    "node-sass": "^5.0.0"
+  }
+}
