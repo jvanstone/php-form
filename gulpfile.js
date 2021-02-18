@@ -1,38 +1,43 @@
-const gulp = require('gulp');
-const php = require('gulp-connect-php');
-const sass = require('gulp-sass');
-const del = require('del');
+    const bsync = require('browser-sync');
+    const gulp = require('gulp');
+    const sass = require('gulp-sass');
+    var concat = require('gulp-concat');
 
-const browserSync = require('browser-sync').create();
+    function sync() {
+        return bsync.init({
+            files: [
+                '*.html',
+                '*.php',
+                'assets/css/**/*.css',
+                'assets/js/**/*.js'
+            ],
+            host: '0.0.0.0.0',
+            proxy:'http://localhost/sandbox-wp/sandbox-wp/wp-content/themes/php-form/',
+            port: 8080,
+            reloadDelay: 1000,
+            ghostMode: false,
+            notify: false
+        });
+    }
 
-gulp.task('php', function(){
-    php.server({base:'./', port:8010, keepalive:true});
-});
-
-gulp.task('styles', () => {
-    return gulp.src('sass/**/*.scss')
+    function styles() {
+        return gulp.src('./sass/**/*.scss')
+        .pipe(concat('style.scss'))
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./css/'));
-});
+    }
 
-gulp.task('clean', () => {
-    return del([
-        'css/main.css',
-    ]);
-});
+    function watchSASS() {
+        return gulp.watch('./sass/**/*.scss', styles).on('change', function () {
+            bsync.reload();
+        });
+    }
 
-gulp.task('browserSync',['php'], function(){
-    browserSync.init({
-        proxy:"localhost:8010",
-        baseDir: "./",
-        open: true,
-        notify:fale
+    function watchPHP() { 
+       return gulp.watch('**/*.php').on('change', function () {
+            bsync.reload();
+        });
+     
+    }
 
-    });
-});
-
-gulp.task('dev', [ 'browserSync'], function() {
-    gulp.watch('./*.php', browserSync.reload);
-});
-
-gulp.task('default', gulp.series(['dev', 'clean', 'styles']));
+    gulp.task('start', gulp.series(sync, styles, watchSASS, watchPHP));
