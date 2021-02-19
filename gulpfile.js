@@ -1,43 +1,58 @@
-    const bsync = require('browser-sync');
-    const gulp = require('gulp');
-    const sass = require('gulp-sass');
-    var concat = require('gulp-concat');
+/**
+ * Load Plugins.
+ *
+ * Load gulp plugins and passing them semantic names.
+ */
 
-    function sync() {
-        return bsync.init({
-            files: [
-                '*.html',
-                '*.php',
-                'assets/css/**/*.css',
-                'assets/js/**/*.js'
-            ],
+const gulp = require('gulp');
+
+const sass = require('gulp-sass');
+const concat = require('gulp-concat');
+//const notify = require('gulp-notify'); // Sends message notification to you.
+
+const browserSync = require('browser-sync').create();
+
+    const browsersync = done => {
+        browserSync.init({
+            proxy:'http://localhost/sandbox-wp/wp-content/themes/php-form/',
             host: '0.0.0.0.0',
-            proxy:'http://localhost/sandbox-wp/sandbox-wp/wp-content/themes/php-form/',
             port: 8080,
-            reloadDelay: 1000,
+            injectChanges: true,
             ghostMode: false,
-            notify: false
+            notify: false,
+            watchEvents: ['change', 'add', 'unlink', 'addDir', 'unlinkDir']
         });
+        done();
     }
 
-    function styles() {
-        return gulp.src('./sass/**/*.scss')
+// Helper function to allow browser reload with Gulp 4.
+const reload = done => {
+	browserSync.reload();
+	done();
+};
+
+    gulp.task('styles', () => {
+        return gulp
+        .src('./sass/**/*.scss')
         .pipe(concat('style.scss'))
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./css/'));
-    }
+        
+    });
 
-    function watchSASS() {
-        return gulp.watch('./sass/**/*.scss', styles).on('change', function () {
-            bsync.reload();
-        });
-    }
 
-    function watchPHP() { 
-       return gulp.watch('**/*.php').on('change', function () {
-            bsync.reload();
-        });
-     
-    }
 
-    gulp.task('start', gulp.series(sync, styles, watchSASS, watchPHP));
+
+/**
+ * Watch Tasks.
+ *
+ * Watches for file changes and runs specific tasks.
+ */  
+
+gulp.task(
+    'start', 
+    gulp.parallel('styles', browsersync, () => {
+    gulp.watch('./**/*.php',reload); // Reload on PHP file changes.
+    gulp.watch('./sass/**/*.scss', gulp.parallel('styles')); // Reload on SCSS file changes.
+    })
+);

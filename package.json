@@ -26,5 +26,8 @@
     "gulp-watch-sass": "^1.4.1",
     "gup": "^2.0.4",
     "node-sass": "^5.0.0"
+  },
+  "dependencies": {
+    "gulp-filter": "^6.0.0"
   }
 }
